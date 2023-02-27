@@ -3,11 +3,14 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.Optional;
-
+@Transactional //데이터를 저장하거나 변경할땐 항상 트랜잭션이 있어야함 (JPA는 모든 데이터 변경이 트랜잭션 안에서 수행됨)
 public class MemberService {
 
     private final MemberRepository memberRepository;
